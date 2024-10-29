@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-gz1b3#(s7gw5h9&@pvcc+f%!u43obpw)))1nmi314d9@#e_l*m
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["debianv.tailb97142.ts.net"]
+ALLOWED_HOSTS = ['ai.zpi-zp31.vn.ua', 'localhost']
 CSRF_TRUSTED_ORIGINS = ["https://debianv.tailb97142.ts.net"]
 CSRF_ALLOWED_ORIGINS = ["https://debianv.tailb97142.ts.net"]
 CORS_ORIGINS_WHITELIST = ["https://debianv.tailb97142.ts.net"]
@@ -125,10 +125,9 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
-STATICFILES_DIRS = [
-    BASE_DIR / "static",
-    "/var/www/django_ai/static",
-]
+# STATICFILES_DIRS = [
+#    BASE_DIR / "static",
+#]
 STATIC_URL = 'static/'
 STATIC_ROOT = '/var/www/django_ai/static/'
 # Default primary key field type
