@@ -11,6 +11,13 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 """
 
 from pathlib import Path
+import os
+from dotenv import load_dotenv
+
+load_dotenv()
+
+DEBUG = os.getenv('DEBUG')
+DB_CREDENTIALS_PATH = os.getenv('DB_CREDENTIALS_PATH')
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -23,7 +30,6 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-gz1b3#(s7gw5h9&@pvcc+f%!u43obpw)))1nmi314d9@#e_l*m'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
 
 ALLOWED_HOSTS = ['ai.zpi-zp31.vn.ua', 'localhost']
 CSRF_TRUSTED_ORIGINS = ["https://debianv.tailb97142.ts.net"]
@@ -84,7 +90,7 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'OPTIONS': {
-            "read_default_file": "/home/alex/.config/jur_kant_db.cnf",
+            "read_default_file": DB_CREDENTIALS_PATH,
             "init_command": "SET sql_mode='STRICT_TRANS_TABLES'"
         },
 
