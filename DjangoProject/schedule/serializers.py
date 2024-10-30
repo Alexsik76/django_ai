@@ -1,9 +1,8 @@
-from .models import Teacher
+from .models import Teacher, AcademicDiscipline
 from rest_framework import serializers
 
 
 class TeacherSerializer(serializers.ModelSerializer):
-    # full_name = serializers.Field(source='full_name')
     discipline = serializers.SlugRelatedField(
         many=True,
         read_only=True,
@@ -11,6 +10,14 @@ class TeacherSerializer(serializers.ModelSerializer):
     )
     class Meta:
         model = Teacher
-        fields = ['first_name', 'middle_name', 'last_name', 'phone', 'email', 'tg_link', 'full_name', 'discipline']
+        fields = ['id', 'first_name', 'middle_name', 'last_name', 'phone', 'email', 'tg_link', 'full_name', 'discipline']
 
-
+class DisciplineSerializer(serializers.ModelSerializer):
+    teacher = serializers.SlugRelatedField(
+        many=False,
+        read_only=True,
+        slug_field='full_name'
+    )
+    class Meta:
+        model = AcademicDiscipline
+        fields = ['id', 'name', 'teacher']
