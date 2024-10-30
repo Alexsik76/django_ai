@@ -3,7 +3,7 @@ from schedule.models import Teacher, AcademicDiscipline, Task
 
 @admin.register(Teacher)
 class TeacherAdmin(admin.ModelAdmin):
-    list_display = ["get_full_name", "disciplines"]
+    list_display = ["full_name", "disciplines"]
 
     def disciplines(self, obj):
         return ', '.join([a.name for a in obj.discipline.all()])
@@ -19,8 +19,6 @@ class AcademicDisciplineAdmin(admin.ModelAdmin):
     list_display = ["name", "descriptions", "teacher"]
     list_display_links = ["name", "teacher"]
 
+@admin.register(Task)
 class TaskAdmin(admin.ModelAdmin):
-    pass
-
-
-admin.site.register(Task, TaskAdmin)
+    list_display = ["discipline", "task_type", "date"]

@@ -22,11 +22,12 @@ class Teacher(models.Model):
     email = models.EmailField(blank=True)
     tg_link = Link(blank=True)
 
-    def get_full_name(self):
+    @property
+    def full_name(self):
         return f"{self.last_name} {self.first_name} {self.middle_name}"
 
     def __str__(self):
-        return self.get_full_name()
+        return self.full_name
 
 
 
@@ -34,7 +35,7 @@ class AcademicDiscipline(models.Model):
     name = models.CharField(max_length=200)
     descriptions = models.CharField(max_length=1000, blank=True)
     link_desk = Link(blank=True)
-    teacher = models.ForeignKey(Teacher, on_delete=CASCADE, blank=True, related_name='discipline')
+    teacher = models.ForeignKey(Teacher, null=True, blank=True,  on_delete=CASCADE,  related_name='discipline')
     link_class = Link(blank=True)
     link_disk = Link(blank=True)
 

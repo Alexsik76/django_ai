@@ -48,7 +48,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'BaseApp.apps.BaseappConfig',
     'phonenumber_field',
-    'schedule'
+    'schedule',
+    'rest_framework',
 ]
 
 MIDDLEWARE = [
