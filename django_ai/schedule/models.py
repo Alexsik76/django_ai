@@ -1,4 +1,5 @@
 from django.db import models
+
 from django.db.models import CASCADE
 from phonenumber_field.modelfields import PhoneNumberField
 
@@ -28,7 +29,6 @@ class Teacher(models.Model):
 
     def __str__(self):
         return self.full_name
-
 
 
 class AcademicDiscipline(models.Model):

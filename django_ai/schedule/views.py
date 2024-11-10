@@ -1,7 +1,7 @@
 from rest_framework import permissions, viewsets
 
-from .models import Teacher, AcademicDiscipline
-from .serializers import TeacherSerializer, DisciplineSerializer
+from django_ai.schedule.models import Teacher, AcademicDiscipline
+from django_ai.schedule.serializers import TeacherSerializer, DisciplineSerializer
 
 
 class TeacherViewSet(viewsets.ModelViewSet):

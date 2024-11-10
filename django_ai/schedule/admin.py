@@ -1,5 +1,6 @@
 from django.contrib import admin
-from schedule.models import Teacher, AcademicDiscipline, Task
+from django_ai.schedule.models import Teacher, AcademicDiscipline, Task
+
 
 @admin.register(Teacher)
 class TeacherAdmin(admin.ModelAdmin):
@@ -18,6 +19,7 @@ class TeacherAdmin(admin.ModelAdmin):
 class AcademicDisciplineAdmin(admin.ModelAdmin):
     list_display = ["name", "descriptions", "teacher"]
     list_display_links = ["name", "teacher"]
+
 
 @admin.register(Task)
 class TaskAdmin(admin.ModelAdmin):
