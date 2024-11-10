@@ -1,0 +1,9 @@
+#  /etc/systemd/system/ai.socket
+[Unit]
+Description=gunicorn ai socket
+
+[Socket]
+ListenStream=/run/ai.sock
+
+[Install]
+WantedBy=sockets.target
