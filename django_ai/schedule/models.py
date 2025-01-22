@@ -59,3 +59,15 @@ class Task(models.Model):
     group = models.BooleanField(default=False, help_text="Can be performed by a group.")
     work_space = Link(blank=True)
     group_work_space = Link(blank=True)
+
+def upload_to(instance, filename):
+    return 'images/{filename}'.format(filename=filename)
+
+class ImageModel(models.Model):
+    # creator = models.ForeignKey(
+    #     User, on_delete=models.CASCADE, related_name="listings")
+    title = models.CharField(
+        max_length=80, blank=False, null=False)
+    description = models.TextField()
+    created_at = models.DateTimeField(auto_now_add=True)
+    image_url = models.ImageField(upload_to=upload_to, blank=True, null=True)

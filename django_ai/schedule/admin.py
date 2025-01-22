@@ -1,5 +1,5 @@
 from django.contrib import admin
-from django_ai.schedule.models import Teacher, AcademicDiscipline, Task
+from django_ai.schedule.models import Teacher, AcademicDiscipline, Task, ImageModel
 
 
 @admin.register(Teacher)
@@ -24,3 +24,7 @@ class AcademicDisciplineAdmin(admin.ModelAdmin):
 @admin.register(Task)
 class TaskAdmin(admin.ModelAdmin):
     list_display = ["discipline", "task_type", "date"]
+
+@admin.register(ImageModel)
+class TaskAdmin(admin.ModelAdmin):
+    list_display = ["title", "description", "created_at", "image_url"]

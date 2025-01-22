@@ -1,4 +1,4 @@
-from django_ai.schedule.models import Teacher, AcademicDiscipline
+from django_ai.schedule.models import Teacher, AcademicDiscipline, ImageModel
 from rest_framework import serializers
 
 
@@ -25,3 +25,14 @@ class DisciplineSerializer(serializers.ModelSerializer):
     class Meta:
         model = AcademicDiscipline
         fields = ['id', 'name', 'teacher']
+
+class ImageSerializer(serializers.ModelSerializer):
+    title = serializers.CharField(required=False, default="Image")
+    description = serializers.CharField(required=False, default="uploaded image")
+    created_at = serializers.DateTimeField(required=False)
+    image_url = serializers.ImageField(required=False)
+    def validate(self, attrs):
+        return attrs
+    class Meta:
+        model = ImageModel
+        fields = ["title", "description", 'created_at', "image_url"]
