@@ -1,0 +1,18 @@
+#  /etc/systemd/system/ai.service
+[Unit]
+Description=gunicorn ai daemon
+Requires=ai.socket
+After=network.target
+
+[Service]
+User=alex
+Group=alex
+WorkingDirectory=/home/alex/dev_kpi/ai/django_ai/
+ExecStart=/home/alex/dev_kpi/ai/django_ai/.venv/bin/gunicorn \
+          --access-logfile - \
+          --workers 3 \
+          --bind unix:/run/ai.sock \
+          django_ai.wsgi:application
+
+[Install]
+WantedBy=multi-user.target

@@ -17,7 +17,11 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-DEBUG = os.getenv('DEBUG')
+#DEBUG = os.getenv('DEBUG')
+DEBUG = False
+
+
+
 DB_CREDENTIALS_PATH = os.getenv('DB_CREDENTIALS_PATH')
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -31,8 +35,8 @@ SECRET_KEY = 'django-insecure-04)c(+1l8ndl#qla%+^!1dec12x4iau9&we^euftg2f5lvoaq1
 
 # SECURITY WARNING: don't run with debug turned on in production!
 
-ALLOWED_HOSTS = ['localhost', '127.0.0.1']
-
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'ai.profi-it.com.ua']
+CSRF_TRUSTED_ORIGINS = ['https://ai.profi-it.com.ua',]
 
 # Application definition
 
@@ -130,11 +134,9 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
 
 STATIC_URL = 'static/'
-MEDIA_URL = 'images/'
 
-if not DEBUG:
-    STATIC_ROOT = os.getenv('STATIC_ROOT')
-    MEDIA_ROOT = os.getenv('MEDIA_ROOT')
+# if not DEBUG:
+STATIC_ROOT = os.getenv('STATIC_ROOT')
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
